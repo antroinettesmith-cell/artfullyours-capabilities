@@ -15,8 +15,10 @@
       overlay.id = "ay-gate";
       overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:#1A0A1A;display:flex;align-items:center;justify-content:center;z-index:99999;font-family:'Georgia',serif;";
       overlay.innerHTML = '<div style="text-align:center;padding:48px 40px;background:#3D1A2E;border:1px solid #D4A843;max-width:380px;width:90%;">' +
-        '<div style="font-size:13px;letter-spacing:6px;color:#D4A843;text-transform:uppercase;margin-bottom:8px;">The Artfullyours Agency</div>' +
-        '<div style="font-size:28px;color:#F5F0E8;font-style:italic;margin-bottom:32px;">Capabilities Deck</div>' +
+        '<div style="font-family:dulcinea,cursive;font-size:60px;color:#D4A843;line-height:1;margin-bottom:10px;">AY</div>' +
+        '<div style="width:40px;height:1px;background:rgba(212,168,67,0.35);margin:0 auto 14px;"></div>' +
+        '<div style="font-size:13px;letter-spacing:6px;color:#D4A843;text-transform:uppercase;font-family:Jost,sans-serif;margin-bottom:6px;">The Artfullyours Agency</div>' +
+        '<div style="font-size:28px;color:#F5F0E8;font-style:italic;margin-bottom:32px;font-family:\'Cormorant Garamond\',serif;font-weight:300;">Capabilities Deck</div>' +
         '<input id="ay-pw" type="password" placeholder="Enter access code" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,168,67,0.4);color:#F5F0E8;font-size:15px;letter-spacing:2px;text-align:center;outline:none;margin-bottom:12px;font-family:inherit;" />' +
         '<div id="ay-err" style="color:#c0392b;font-size:12px;letter-spacing:1px;margin-bottom:12px;display:none;">Incorrect access code. Please try again.</div>' +
         '<button onclick="window.__ayAuth()" style="width:100%;padding:14px;background:#D4A843;color:#3D1A2E;font-size:13px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;font-family:inherit;font-weight:600;">Enter</button>' +
@@ -43,6 +45,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.typekit.net/lcq4dzl.css">
 <style>
   :root {
     --cream: #F5F0E8;
@@ -108,9 +111,9 @@
     margin: 20px auto; }
   /* Body: Jost 300, 16px on cream / 13px scaled for deck constraints, lh 1.75, Charcoal */
   .body-text { font-family: 'Jost', sans-serif; font-weight: 300;
-    line-height: 1.75; color: var(--charcoal); font-size: 13px; }
+    line-height: 1.75; color: var(--charcoal); font-size: 16px; }
   .body-text-light { font-family: 'Jost', sans-serif; font-weight: 300;
-    line-height: 1.75; color: rgba(245,240,232,0.82); font-size: 13px; }
+    line-height: 1.75; color: rgba(245,240,232,0.82); font-size: 16px; }
 
   /* Split layout */
   .split-left { flex: 0 0 55%; display: flex; flex-direction: column;
@@ -131,13 +134,13 @@
   /* Credential tags — Antique Gold on cream, Bright Gold on plum */
   .tag {
     display: inline-block; font-family: 'Jost', sans-serif; font-weight: 400;
-    font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
     border: 1px solid rgba(184,134,11,0.45); color: var(--gold-dark);
     padding: 5px 12px; margin: 4px 4px 0 0;
   }
   .tag-plum {
     display: inline-block; font-family: 'Jost', sans-serif; font-weight: 400;
-    font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
     border: 1px solid rgba(212,168,67,0.45); color: var(--gold);
     padding: 5px 12px; margin: 4px 4px 0 0;
   }
@@ -151,7 +154,7 @@
   .stat-num { font-family: 'Cormorant Garamond', serif; font-weight: 300;
     font-size: 44px; color: var(--plum-mid); line-height: 1; }
   .stat-label { font-family: 'Jost', sans-serif; font-weight: 400;
-    font-size: 9px; letter-spacing: 2.5px; color: var(--gold-dark);
+    font-size: 10px; letter-spacing: 2.5px; color: var(--gold-dark);
     text-transform: uppercase; margin-top: 8px; }
 
   /* Services grid */
@@ -164,10 +167,10 @@
   .service-num { font-family: 'Cormorant Garamond', serif; font-size: 28px;
     color: rgba(184,134,11,0.35); font-weight: 300; line-height: 1; margin-bottom: 6px; }
   .service-title { font-family: 'Jost', sans-serif; font-weight: 400;
-    font-size: 12px; letter-spacing: 1px; color: var(--plum-mid);
+    font-size: 13px; letter-spacing: 1px; color: var(--plum-mid);
     text-transform: uppercase; margin-bottom: 6px; }
   .service-desc { font-family: 'Jost', sans-serif; font-weight: 300;
-    font-size: 12px; color: rgba(42,42,42,0.72); line-height: 1.6; }
+    font-size: 13px; color: rgba(42,42,42,0.72); line-height: 1.6; }
 
   /* Pricing tiers */
   .tiers-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
@@ -175,7 +178,7 @@
     position: relative; border-top: 2px solid transparent; }
   .tier-card.featured { border-top: 2px solid var(--gold);
     background: var(--plum-deep); color: white; }
-  .tier-badge { font-family: 'Jost', sans-serif; font-size: 9px;
+  .tier-badge { font-family: 'Jost', sans-serif; font-size: 10px;
     letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
     margin-bottom: 14px; }
   .tier-name { font-family: 'Cormorant Garamond', serif; font-size: 18px;
@@ -193,9 +196,9 @@
     letter-spacing: 1.5px; color: rgba(245,240,232,0.55);
     text-transform: uppercase; margin-bottom: 18px; }
   .tier-desc { font-family: 'Jost', sans-serif; font-weight: 300;
-    font-size: 12px; line-height: 1.65; color: rgba(42,42,42,0.68); }
+    font-size: 13px; line-height: 1.65; color: rgba(42,42,42,0.68); }
   .tier-desc-light { font-family: 'Jost', sans-serif; font-weight: 300;
-    font-size: 12px; line-height: 1.65; color: rgba(245,240,232,0.72); }
+    font-size: 13px; line-height: 1.65; color: rgba(245,240,232,0.72); }
 
   /* Phase steps */
   .phases-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; }
@@ -208,18 +211,18 @@
     font-weight: 300; color: var(--plum-mid); margin: 8px 0 10px;
     line-height: 1.2; }
   .phase-desc { font-family: 'Jost', sans-serif; font-weight: 300;
-    font-size: 11.5px; color: rgba(42,42,42,0.65); line-height: 1.6; }
+    font-size: 13px; color: rgba(42,42,42,0.65); line-height: 1.6; }
 
   /* Collective roles */
   .roles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
   .role-item { padding: 18px 0; border-bottom: 1px solid rgba(61,26,46,0.1); }
   .role-item:nth-child(odd) { padding-right: 32px; border-right: 1px solid rgba(61,26,46,0.1); }
   .role-item:nth-child(even) { padding-left: 32px; }
-  .role-title { font-family: 'Jost', sans-serif; font-size: 11px;
+  .role-title { font-family: 'Jost', sans-serif; font-size: 12px;
     font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--plum-mid); margin-bottom: 4px; }
   .role-desc { font-family: 'Jost', sans-serif; font-weight: 300;
-    font-size: 11.5px; color: rgba(42,42,42,0.65); }
+    font-size: 13px; color: rgba(42,42,42,0.65); }
 
   /* Signature work */
   .case-study { display: grid; grid-template-columns: 280px 1fr; gap: 0;
@@ -232,35 +235,58 @@
   .case-title { font-family: 'Cormorant Garamond', serif; font-size: 22px;
     color: var(--plum-mid); margin-bottom: 8px; font-weight: 300; }
   .case-desc { font-family: 'Jost', sans-serif; font-weight: 300;
-    font-size: 12px; color: rgba(42,42,42,0.68); line-height: 1.6;
+    font-size: 13px; color: rgba(42,42,42,0.68); line-height: 1.6;
     margin-bottom: 14px; }
   .case-stats { display: flex; gap: 24px; }
   .case-stat .num { font-family: 'Cormorant Garamond', serif; font-size: 22px;
     color: var(--plum-mid); font-weight: 300; }
-  .case-stat .lbl { font-family: 'Jost', sans-serif; font-size: 8px;
+  .case-stat .lbl { font-family: 'Jost', sans-serif; font-size: 10px;
     letter-spacing: 1.5px; color: var(--gold-dark); text-transform: uppercase; }
 
   /* CTA slide */
   .cta-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
     margin-top: 40px; }
-  .contact-item .label { font-family: 'Jost', sans-serif; font-size: 9px;
+  .contact-item .label { font-family: 'Jost', sans-serif; font-size: 10px;
     letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
     margin-bottom: 6px; }
   .contact-item .value { font-family: 'Cormorant Garamond', serif; font-size: 18px;
     color: var(--cream); font-weight: 300; }
 
-  /* Watermark monogram */
+  /* Watermark monogram — Dulcinea (AY brand mark) */
   .monogram {
-    position: absolute; font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    position: absolute; font-family: 'dulcinea', serif; font-weight: 400;
     font-size: 320px; line-height: 1; color: rgba(61,26,46,0.05);
     right: -40px; top: 50%; transform: translateY(-50%);
     pointer-events: none; user-select: none; letter-spacing: -10px;
   }
   .monogram-light {
-    position: absolute; font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    position: absolute; font-family: 'dulcinea', serif; font-weight: 400;
     font-size: 320px; line-height: 1; color: rgba(232,213,163,0.04);
     right: 30px; top: 50%; transform: translateY(-50%);
     pointer-events: none; user-select: none;
+  }
+  /* AY mark — Stacked Lockup (Dulcinea + Jost agency name) */
+  .ay-mark {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; gap: 0;
+  }
+  .ay-mark-letters {
+    font-family: 'dulcinea', serif; font-weight: 400;
+    color: var(--gold); line-height: 1;
+  }
+  .ay-mark-name {
+    font-family: 'Jost', sans-serif; font-weight: 300;
+    letter-spacing: 5px; text-transform: uppercase;
+    color: var(--gold);
+  }
+  /* AY mark on cream/light background */
+  .ay-mark-plum .ay-mark-letters,
+  .ay-mark-plum .ay-mark-name { color: var(--plum-mid); }
+  /* Compact nav version */
+  .ay-mark-nav {
+    font-family: 'dulcinea', serif; font-weight: 400;
+    font-size: 22px; color: var(--gold); line-height: 1;
+    letter-spacing: 1px;
   }
 
   /* Print styles — each slide prints as its own page */
@@ -294,11 +320,20 @@
 <div class="slide active" id="s1">
   <div class="split-left">
     <div class="monogram">AY</div>
-    <div class="section-label">The Artfullyours Agency &nbsp;·&nbsp; Est. 2025 &nbsp;·&nbsp; Dallas–Fort Worth</div>
+    <!-- AY Eyebrow Lockup — Variation 12 · Plum on Cream · Capabilities deck covers -->
+    <div style="display:flex;align-items:center;gap:18px;margin-bottom:28px;">
+      <div style="font-family:'dulcinea',cursive;font-weight:400;font-size:56px;color:var(--plum-mid);line-height:1;flex-shrink:0;">AY</div>
+      <div style="width:1px;align-self:stretch;background:rgba(61,26,46,0.2);flex-shrink:0;"></div>
+      <div style="display:flex;flex-direction:column;gap:3px;">
+        <div style="font-family:'Jost',sans-serif;font-size:8.5px;font-weight:400;letter-spacing:0.34em;text-transform:uppercase;color:var(--gold-dark);">White-Label Event Strategy &nbsp;·&nbsp; Est. 2025</div>
+        <div style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.28em;text-transform:uppercase;color:var(--plum-mid);">The Artfullyours Agency</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11.5px;font-weight:300;color:rgba(184,134,11,0.65);">Elevated Event Experiences, Artfully Delivered.</div>
+      </div>
+    </div>
     <h1 class="headline headline-plum" style="font-size:54px; margin-bottom:4px;">White Label Event<br>&amp; Experiential</h1>
     <h1 class="italic-gold" style="font-size:54px;">Strategy</h1>
     <div class="gold-rule"></div>
-    <p style="font-family:'Jost',sans-serif; font-size:13px; font-weight:300; color:rgba(42,42,42,0.68); margin-bottom:24px; letter-spacing:0.5px;">
+    <p style="font-family:'Jost',sans-serif; font-size:14px; font-weight:300; color:rgba(42,42,42,0.68); margin-bottom:24px; letter-spacing:0.5px;">
       The invisible architecture behind landmark conferences, galas,<br>brand activations, and experiential programs.
     </p>
     <div>
@@ -578,7 +613,7 @@
 <div class="slide" id="s9">
   <div class="split-left" style="background:var(--cream); flex:0 0 58%;">
     <div class="monogram">AY</div>
-    <div class="section-label">Now Accepting Select Engagements</div>
+    <div class="section-label-light" style="color:var(--gold-dark);">Now Accepting Select Engagements</div>
     <h2 class="headline headline-plum" style="font-size:52px; display:inline;">Are You </h2>
     <span class="italic-gold" style="font-size:52px;">Ready?</span>
     <div class="gold-rule"></div>
@@ -595,9 +630,16 @@
         <div class="value" style="font-size:15px;">antroinette@artfullyoursevents.com</div>
       </div>
     </div>
-    <div style="margin-top:40px; padding-top:24px; border-top:1px solid rgba(61,26,46,0.1);">
-      <p style="font-family:'Jost',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(42,42,42,0.45);">
-        The Artfullyours Agency &nbsp;·&nbsp; Est. 2025 &nbsp;·&nbsp; Confidential — For Qualified Partners Only
+    <!-- AY Stacked Lockup Footer — Variation 07 · Plum on Cream · Capabilities collateral -->
+    <div style="margin-top:40px; padding-top:24px; border-top:1px solid rgba(61,26,46,0.1); display:flex; align-items:center; gap:20px;">
+      <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;">
+        <div style="font-family:'dulcinea',cursive;font-weight:400;font-size:38px;color:var(--plum-mid);line-height:1;">AY</div>
+        <div style="width:28px;height:1px;background:rgba(184,134,11,0.3);"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:6.5px;font-weight:300;letter-spacing:0.3em;text-transform:uppercase;color:var(--plum-mid);">The Artfullyours Agency</div>
+      </div>
+      <div style="width:1px;height:40px;background:rgba(61,26,46,0.12);"></div>
+      <p style="font-family:'Jost',sans-serif; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(42,42,42,0.45); line-height:1.8;">
+        Est. 2025 &nbsp;·&nbsp; Confidential<br>For Qualified Partners Only
       </p>
     </div>
   </div>
@@ -611,6 +653,7 @@
 
 <!-- Navigation -->
 <div id="nav">
+  <span class="ay-mark-nav">AY</span>
   <button class="nav-btn" onclick="prevSlide()">&#8592;</button>
   <div id="dots"></div>
   <span id="slide-count">1 / 9</span>
