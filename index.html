@@ -9,20 +9,22 @@
 (function() {
   var PASSWORD = "Artfully2026";
   var SESSION_KEY = "ay_deck_auth";
+  var urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get("access") === PASSWORD) { sessionStorage.setItem(SESSION_KEY, "1"); }
   if (sessionStorage.getItem(SESSION_KEY) !== "1") {
     document.addEventListener("DOMContentLoaded", function() {
       document.body.style.display = "none";
       var overlay = document.createElement("div");
       overlay.id = "ay-gate";
-      overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:#1A0A1A;display:flex;align-items:center;justify-content:center;z-index:99999;font-family:'Georgia',serif;";
-      overlay.innerHTML = '<div style="text-align:center;padding:48px 40px;background:#3D1A2E;border:1px solid #D4A843;max-width:380px;width:90%;">' +
-        '<div style="font-family:dulcinea,cursive;font-size:60px;color:#D4A843;line-height:1;margin-bottom:10px;">AY</div>' +
-        '<div style="width:40px;height:1px;background:rgba(212,168,67,0.35);margin:0 auto 14px;"></div>' +
-        '<div style="font-size:13px;letter-spacing:6px;color:#D4A843;text-transform:uppercase;font-family:Jost,sans-serif;margin-bottom:6px;">The Artfullyours Agency</div>' +
-        '<div style="font-size:28px;color:#F5F0E8;font-style:italic;margin-bottom:32px;font-family:\'Cormorant Garamond\',serif;font-weight:300;">Capabilities Deck</div>' +
-        '<input id="ay-pw" type="password" placeholder="Enter access code" style="width:100%;padding:14px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(212,168,67,0.4);color:#F5F0E8;font-size:15px;letter-spacing:2px;text-align:center;outline:none;margin-bottom:12px;font-family:inherit;" />' +
+      overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:#F5F0E8;display:flex;align-items:center;justify-content:center;z-index:99999;font-family:'Georgia',serif;";
+      overlay.innerHTML = '<div style="text-align:center;padding:48px 40px;max-width:380px;width:90%;">' +
+        '<div style="font-family:dulcinea,cursive;font-size:60px;color:#3D1A2E;line-height:1;margin-bottom:10px;">AY</div>' +
+        '<div style="width:40px;height:1px;background:rgba(61,26,46,0.2);margin:0 auto 14px;"></div>' +
+        '<div style="font-size:13px;letter-spacing:6px;color:#3D1A2E;text-transform:uppercase;font-family:Jost,sans-serif;margin-bottom:6px;">The Artfullyours Agency</div>' +
+        '<div style="font-size:28px;color:#B8860B;font-style:italic;margin-bottom:32px;font-family:\'Cormorant Garamond\',serif;font-weight:300;">Capabilities Deck</div>' +
+        '<input id="ay-pw" type="password" placeholder="Enter access code" style="width:100%;padding:14px 16px;background:rgba(61,26,46,0.04);border:1px solid rgba(61,26,46,0.2);color:#3D1A2E;font-size:15px;letter-spacing:2px;text-align:center;outline:none;margin-bottom:12px;font-family:inherit;" />' +
         '<div id="ay-err" style="color:#c0392b;font-size:12px;letter-spacing:1px;margin-bottom:12px;display:none;">Incorrect access code. Please try again.</div>' +
-        '<button onclick="window.__ayAuth()" style="width:100%;padding:14px;background:#D4A843;color:#3D1A2E;font-size:13px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;font-family:inherit;font-weight:600;">Enter</button>' +
+        '<button onclick="window.__ayAuth()" style="width:100%;padding:14px;background:#3D1A2E;color:#F5F0E8;font-size:13px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;font-family:inherit;font-weight:600;">Enter</button>' +
         '</div>';
       document.body.parentNode.insertBefore(overlay, document.body);
       document.getElementById("ay-pw").addEventListener("keydown", function(e) { if (e.key === "Enter") window.__ayAuth(); });
@@ -475,6 +477,35 @@
         <div class="service-title">AI-Driven Event Tech Consulting</div>
         <div class="service-desc">Fifteen years of real-world event and project management workflows translated into structured insights for the teams building next-generation event technology. We speak both languages — fluently.</div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SLIDE: WHY PARTNERS CHOOSE US -->
+<div class="slide" id="s-why" style="flex-direction:column;">
+  <div class="section-header">
+    <div class="section-label-light" style="text-align:center;">WHY PARTNERS CHOOSE US</div>
+    <h2 class="headline headline-cream" style="text-align:center; font-size:38px; margin-bottom:4px;">Why Partners</h2>
+    <h2 class="italic-gold" style="text-align:center; font-size:38px; margin-bottom:8px;">Choose Us</h2>
+    <div class="gold-rule" style="margin:0 auto 32px;"></div>
+  </div>
+  <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 40px;">
+    <div style="background:rgba(61,26,46,0.04);padding:28px 24px;border-left:2px solid rgba(212,168,67,0.4);">
+      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px;">ASSESS</div>
+      <p style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(42,42,42,0.7);">We invest in understanding your vision before we bring anything to paper &mdash; because the right foundation is what makes everything that follows feel effortless.</p>
+    </div>
+    <div style="background:rgba(61,26,46,0.04);padding:28px 24px;border-left:2px solid rgba(212,168,67,0.4);">
+      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px;">REFINE</div>
+      <p style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(42,42,42,0.7);">We shape that vision into a complete blueprint &mdash; creative concept, budget architecture, production timeline &mdash; each element informing the others, nothing left to assumption.</p>
+    </div>
+    <div style="background:rgba(61,26,46,0.04);padding:28px 24px;border-left:2px solid rgba(212,168,67,0.4);">
+      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px;">TRANSFORM</div>
+      <p style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(42,42,42,0.7);">We build and execute with precision and creative care &mdash; managing every detail, every vendor, every decision, so you remain present for the experience.</p>
+    </div>
+    <div style="background:rgba(61,26,46,0.04);padding:28px 24px;border-left:2px solid rgba(212,168,67,0.4);">
+      <div style="font-family:'Jost',sans-serif;font-size:10px;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px;">SUSTAIN</div>
+      <p style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.8;color:rgba(42,42,42,0.7);">We close every engagement with the same intention we opened it &mdash; because the relationship is part of what we produce.</p>
     </div>
   </div>
 </div>
