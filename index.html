@@ -336,6 +336,34 @@
     [style*="grid-template-columns: 1fr 1fr"] { display: block !important; }
     [style*="grid-template-columns:1fr 1fr"] > div,
     [style*="grid-template-columns: 1fr 1fr"] > div { margin-bottom: 16px; }
+    /* P6 (Service Tiers) — 3-column tiers stack to 1 */
+    .tiers-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .tier-card { padding: 24px 20px !important; }
+    .tier-price, .tier-price-white { font-size: 32px !important; }
+    .tier-name, .tier-name-white { font-size: 17px !important; }
+    .tier-desc, .tier-desc-light { font-size: 12px !important; }
+    .tier-badge { font-size: 9px !important; }
+    /* Services grid — 2-column stack to 1 */
+    .services-grid { grid-template-columns: 1fr !important; }
+    .service-item { padding: 18px 20px !important; border-right: none !important; border-bottom: 1px solid rgba(61,26,46,0.08) !important; }
+    .service-item:last-child { border-bottom: none !important; }
+    .service-num { font-size: 24px !important; }
+    .service-title { font-size: 14px !important; }
+    .service-desc { font-size: 12px !important; }
+    /* P10 contact footer — lockup + divider + Confidential text */
+    .split-left > div[style*="margin-top:40px"][style*="display:flex"] {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+    }
+    .split-left > div[style*="margin-top:40px"] > div[style*="width:1px"] {
+      display: none !important;
+    }
+    .split-left p[style*="letter-spacing:2px"] {
+      letter-spacing: 0.5px !important;
+      font-size: 9px !important;
+      line-height: 1.5 !important;
+    }
   }
 
   @media print {
