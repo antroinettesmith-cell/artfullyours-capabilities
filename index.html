@@ -69,7 +69,8 @@
   /* Slide container */
   #deck { width: 100vw; height: 100vh; position: relative; }
   .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    display: none; overflow: hidden; }
+    display: none; overflow-y: auto; overflow-x: hidden; }
+  .slide.active { padding-bottom: 80px; }
   .slide.active { display: flex; }
 
   /* Navigation */
@@ -231,8 +232,8 @@
   /* Signature work */
   .case-study { display: grid; grid-template-columns: 280px 1fr; gap: 0;
     background: white; margin-bottom: 16px; overflow: hidden; }
-  .case-img { height: 160px; overflow: hidden; }
-  .case-img img { width: 100%; height: 100%; object-fit: cover; }
+  .case-img { height: 100%; min-height: 160px; overflow: hidden; }
+  .case-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .case-content { padding: 24px 28px; border-left: 3px solid var(--gold); }
   .case-meta { font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: 2px;
     color: var(--gold-dark); text-transform: uppercase; margin-bottom: 8px; }
